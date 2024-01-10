@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-boot-postgres-sample
+    fargatekey: fargatevalue  # Added labels here
+  name: spring-boot-postgres-sample
+  namespace: fargate  # Make sure it is in the correct namespace
+spec:
+  ports:
+    - name: spring-boot-postgres-sample
+      port: 8080
+      protocol: TCP
+  selector:
+    app: spring-boot-postgres-sample
+    fargatekey: fargatevalue  # Added labels here
+  type: LoadBalancer
+

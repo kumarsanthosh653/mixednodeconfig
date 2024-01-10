@@ -1,0 +1,15 @@
+{
+    "fargateProfileName": "demo-kube-system",
+    "clusterName": "prod",
+    "podExecutionRoleArn": "arn:aws:iam::792616605913:role/fargate-pod-rule",
+    "subnets": [
+        "subnet-08f72819e1ed6619e",
+        "subnet-02469fe2d5c15a99a",
+	"subnet-0b1b6c6696f8b82b5"
+    ],
+    "selectors": [
+        {
+            "namespace": "kube-system"
+        }
+    ]
+}

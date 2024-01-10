@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "pg-pv-volume"
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  awsElasticBlockStore:
+    volumeID: vol-087bcc1a7c3462e6a
+    fsType: ext4
+  storageClassName: ""
+[root@ip-172-31-34-20 kubernetesfiles]# cat pvc.yml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pg-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+  storageClassName: ""
+  volumeName: pg-pv-volume
